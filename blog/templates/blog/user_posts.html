@@ -1,0 +1,79 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+    <br>
+    <h1 class="mb-3">Posted by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    <div class="container">
+        <!--<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">-->
+        <div class="row">
+          <div class="col-lg-8">
+           <div class="media">
+            <img class="rounded-circle article-img" width="100px" height="150px" src="{{ post.auteur.profile.image.url }}">
+            <div class="media-body">
+
+                <p class="lead">
+                  by:
+                  <a class="article-title" href="{% url 'user-posts' post.auteur.username %}">{{ post.auteur }}</a>
+                       , Posted on {{ post.date | date:"F d, Y" }} <br>
+                    <a class="mt-4" href="{% url 'post-detail' post.id %}"> {{ post.titre }}</a>
+                </p>
+
+                 <hr>
+                    <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+                   <hr>
+                   <p class="lead"> {{ post.contenu }}</p><hr>
+                   <div class="card my-4">
+                      <h5 class="card-header">Leave a Comment:</h5>
+                      <div class="card-body">
+                        <form>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="3"> {{ post.comment }}</textarea>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                      </div>
+                   </div>
+                   <div class="media mb-4">
+                  <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ user.profile.image.url }}" alt="">
+                      <div class="media-body">
+                        <h5 class="mt-0">{{ post.auteur }}</h5>
+                          <p> {{ post.contenu }} </p>
+                        <div class="media mt-4">
+                          <!--<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">-->
+                          <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ user.profile.image.url }}" alt="">
+                          <div class="media-body">
+                            <h5 class="mt-0">{{ post.auteur }}</h5>
+                              <p> {{ post.contenu }} </p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+           </div>
+         </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}
