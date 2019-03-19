@@ -17,6 +17,7 @@ products = [
         'titre': 'IMB',
         'price': 'IBM Blog',
         'active': '21-02-2019',
+        'service': 'maintenace',
     }
 ]
 
