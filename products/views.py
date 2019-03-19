@@ -23,6 +23,9 @@ products = [
 
 
 def listing(request):
+    query = request.GET.get('query')
+    if not query:
+        message = "Pas de produits"
     context = {
         'products': Products.objects.all()
     }
