@@ -63,7 +63,7 @@ ROOT_URLCONF = 'smartech.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],  # templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

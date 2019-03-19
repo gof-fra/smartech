@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="small_div">
+    <div class="container">
+        <h2>Nos formations</h2>
+        <hr>
+
+        <form action="/create">
+            {{ csrf_token }}
+
+            <label class="form-group" for="description">Description:</label>
+            <input class="form-control" type="text" name="description">
+
+            <label class="form-group" for="encadrant">Encadrant:</label>
+            <input class="form-control" type="text" name="encadrant">
+
+            <label class="form-group" for="date">Date:</label>
+            <input class="form-control" type="date" name="date">
+
+            <label class="form-group" for="fichier">Fichier:</label>
+            <input class="form-control" type="image" name="fichier">
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-        <p>Nos formations</p>
-</body>
-</html>
+{% extends "education/index.html" %}
+    {% block content %}
+    <body>
+        <div class="container">
+             <h2>Nos formations</h2>
+             <hr>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>description</th>
+                        <th>encadrant</th>
+                        <th>date</th>
+                        <th>fichier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for catal in catals %}
+                        <tr>
+                            <td>{{ catal.description}}</td>
+                            <td>{{ catal.encadrant}}</td>
+                            <td>{{ catal.date}}</td>
+                            <td>{{ catal.fichier}}</td>
+                             <td><a class="btn btn-info" href="/edit/{{ catal.id }}">Edit</a>
+                                 <a class="btn btn-danger" href="/delete/{{ catal.id }}">Delete</a>
+                             </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+                <td><a class="btn btn-primary" href="/add/{{ add.formation }}">Add</a> </td>
+        </div>
+    </body>
+    {% endblock %}
