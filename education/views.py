@@ -15,6 +15,7 @@ def create(request):
     fichier = request.GET['fichier']
     catal_detail = Formation(description=description, encadrant=encadrant, date=date, fichier=fichier)
     catal_detail.save()
+    return redirect('/')
 
 
 def add(request):
@@ -32,7 +33,8 @@ def edit(request, id):
 def delete(request):
     catals = Formation.objects.get(pk=id)
     catals.delete()
-    return redirect('/')
+    return render(request, 'education/formation.html')
+#   return redirect('home/')
 
 
 def update(request, id):
