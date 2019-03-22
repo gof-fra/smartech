@@ -12,7 +12,6 @@ def create(request):
     description = request.GET['description']
     encadrant = request.GET['encadrant']
     date = request.GET['date']
-    fichier = request.GET['fichier']
     catal_detail = Formation(description=description, encadrant=encadrant, date=date, fichier=fichier)
     catal_detail.save()
     return redirect('/')
@@ -42,6 +41,5 @@ def update(request, id):
     catals.description = request.GET['description']
     catals.encadrant = request.GET['encadrant']
     catals.date = request.GET['date']
-    catals.fichier = request.GET['fichier']
     catals.save()
     return redirect('/')

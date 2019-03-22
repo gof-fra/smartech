@@ -10,7 +10,6 @@
                         <th>description</th>
                         <th>encadrant</th>
                         <th>date</th>
-                        <th>fichier</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,9 +18,8 @@
                             <td>{{ catal.description}}</td>
                             <td>{{ catal.encadrant}}</td>
                             <td>{{ catal.date}}</td>
-                            <td>{{ catal.fichier}}</td>
-                             <td><a class="btn btn-info" href="/edit/{{ catal.id }}">Edit</a>
-                                 <a class="btn btn-danger" href="/delete/{{ catal.id }}">Delete</a>
+                             <td><a class="btn btn-info" href="/formation/edit/{{ catal.id }}">Edit</a>
+                                 <a class="btn btn-danger" href="/formation/delete/{{ catal.id }}">Delete</a>
                              </td>
                         </tr>
                     {% endfor %}
@@ -30,7 +28,7 @@
 
                 </tfoot>
             </table>
-                <td><a class="btn btn-primary" href="/add/{{ add.formation }}">Add</a> </td>
+                <td><a class="btn btn-primary" href="/formation/add/{{ add.formation }}">Add</a> </td>
         </div>
     </body>
     {% endblock %}

@@ -7,6 +7,6 @@ class Formation(models.Model):
     description = models.CharField(max_length=200, default='String')
     encadrant = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
-    fichier = models.ImageField()
+
 
 

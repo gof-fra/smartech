@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
         <h2>Nos formations</h2>
         <hr>
 
-        <form action="/update/{{ catals.id }}">
+        <form action="/formation/update/{{ catals.id }}">
             {{ csrf_token }}
 
             <label class="form-group" for="description">Description:</label>
@@ -27,10 +27,7 @@
             <label class="form-group" for="date">Date:</label>
             <input class="form-control" type="date" name="date" value="{{ catals.date }}" placeholder="{{ catals.date }}">
 
-            <label class="form-group" for="fichier">Fichier:</label>
-            <input class="form-control" type="image" name="fichier" value="{{ catals.fichier }}" placeholder="{{ catals.fichier }}">
-
-            <input class="btn btn-primary" type="submit" value="Update">
+            <input class="btn btn-primary" type="submit" value="Update" >
 
         </form>
     </div>
