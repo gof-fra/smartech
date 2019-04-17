@@ -47,11 +47,59 @@
             .dropdown-submenu {
               position: relative;
             }
-
             .dropdown-submenu .dropdown-menu {
               top: 0;
               left: 100%;
               margin-top: -1px;
+            }
+            #logo
+            {
+                display: inline-block;
+                position: absolute;
+                height: 50px;
+                 left: -400px;
+            }
+            #A
+            {
+                top: 25px;
+                position: absolute;
+                 right: 600px;
+            }
+            #B
+            {
+                top: 25px;
+                position: absolute;
+                 right: 450px;
+            }
+            #C
+            {
+                top: 25px;
+                position: absolute;
+                 right: 300px;
+            }
+            #D
+            {
+                top: 25px;
+                position: absolute;
+                 right: 200px;
+            }
+            #E
+            {
+                top: 25px;
+                position: absolute;
+                 right: -20px;
+            }
+            #F
+            {
+                top: 25px;
+                position: absolute;
+                 right: -300px;
+            }
+            #G
+            {
+                top: 25px;
+                position: absolute;
+                 right: 100px;
             }
         </style>
 
@@ -77,23 +125,24 @@
                       </button>
                       <!-- Brand -->
                       <a class="navbar-brand page-scroll sticky-logo" href="{% url 'smartech-home' %}">
-                        <h1>smar<span>T</span>ech</h1>
+                          <img src="{% static 'img/slider/logo1.png' %}" rel="stylesheet" width="300px" id="logo">
+                          <!--<h1>smar<span>T</span>ech</h1>-->
                       </a>
                   </div>
 
 
 
                    <!-- dropdown -->
-                    <div class="">
+                    <div class="" id="A">
                         <a href="{% url 'smartech-home' %}" class="btn btn-info" role="button">Accueil</a>
                     </div>
 
-                    <div class="dropdown">
+                    <div class="dropdown" id="B">
                         <button class="btn btn-default " type="button" data-toggle="dropdown">Solutions
                         </button>
                     </div>
 
-                    <div class="dropdown">
+                    <div class="dropdown" id="C">
                         <button class="btn btn-default " type="button" data-toggle="dropdown">Services
                             <span class="caret"></span>
                         </button>
@@ -103,7 +152,7 @@
                         </ul>
                     </div>
 
-                     <div class="dropdown">
+                     <div class="dropdown" id="D">
                       <div class="btn-group">
                         <button type="button" class="btn btn-secondary">Blog</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,12 +170,12 @@
                       </div>
                     </div>
 
-                    <div class="dropdown">
-                        <button class="btn btn-default " type="button" data-toggle="dropdown">Admin Dash
-                        </button>
-                    </div>
+                    <!--<div class="dropdown" id="E">-->
+                        <!--<button class="btn btn-default " type="button" data-toggle="dropdown">Admin Dash-->
+                        <!--</button>-->
+                    <!--</div>-->
 
-                    <div class="dropdown">
+                    <div class="dropdown" id="G">
                       <div class="btn-group">
                         <button type="button" class="btn btn-secondary">Login</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -143,7 +192,7 @@
                       </div>
                     </div>
 
-                  <div>
+                  <div id="F">
                     <form class="form-inline my-0 my-lg-0">
                           <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -207,7 +256,9 @@
 
     <br><br>
 
-
+   <main role="main" class="container">
+        <div class="row" id="bas">
+            <div class="col-md-8">
 
             <!--start blog part1: bootstrap -->
             <!--start blog part2: code -->
@@ -224,9 +275,10 @@
 
               {% block content %} {% endblock %}
 
-
           </div>
-
+          </div>
+        </div>
+   </main>
             <!-- Footer -->
           <footer class="py-1 bg-dark">
             <div class="footer-area-bottom">

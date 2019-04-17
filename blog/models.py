@@ -11,8 +11,13 @@ class Post(models.Model):
     contenu = models.TextField()
     comment = models.TextField()
 
+    def __unicode__(self):
+        return self.titre
+
     def __str__(self):
         return self.titre
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+

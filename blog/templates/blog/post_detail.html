@@ -26,7 +26,7 @@
                     </div>
                    <hr>
 
-                   <div class="card my-4">
+                   <div class="article-metadata">
                       <h5 class="card-header">Object</h5>
                       <div class="card-body">
                           <div class="form-group">
@@ -37,28 +37,35 @@
                       <hr>
                     <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
-                   <div class="card my-4">
+                   <div class="article-metadata">
                       {% if object.auteur == user or object.auteur != user %}
-                      <h5 class="card-header"><a > Leave a Comment: </a> </h5>
+                      <h5 class="card-header">Leave a Comment:</h5>
+                       <form action="" method="POST">
+                       <h6><a href=""><button class="btn btn-primary">Add Comment</button></a> Total comments {{ post.comments.count }}:</h6>
+                           <hr>
                       <div class="card-body">
-                        <form>
-                          <div class="form-group">
-                            <textarea class="form-control" rows="3"> {{ object.comment }}</textarea>
+                                {% for comment in post.comments.all %}
+                                    <p>{{ comment.date }}</p>
+                                    <p>{{ comment.auteur }}</p>
+                                    <p>{{ comment.contenu }}</p>
+                                {% empty %}
+                                    <p>No comment!!!</p>
+                                {% endfor %}
                           </div>
-                          <button type="submit" class="btn btn-primary"><a href="{ url  'user-posts' }"> Submit </a></button>
+                          <!--<button type="submit" class="btn btn-primary"><a href="{ url  'user-posts' }"> Submit </a></button>-->
                         </form>
                       </div>
                      {% endif %}
                    </div>
 
-                   <div class="media mb-4">
+                   <!--<div class="media mb-4">
                      <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ object.auteur.profile.image.url }}" alt="">
                       <div class="media-body">
                         {% if object.auteur == user or object.auteur != user %}
                         <h5 class="mt-0">{{ object.auteur }}</h5>
                           <p> {{ object.contenu }} </p>
                         <div class="media mt-4">
-                          <!--<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">-->
+                          &lt;!&ndash;<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">&ndash;&gt;
                           <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ object.auteur.profile.image.url }}" alt="">
                           <div class="media-body">
                             <h5 class="mt-0">{{ object.auteur }}</h5>
@@ -67,7 +74,7 @@
                         </div>
                         {% endif %}
                       </div>
-                </div>
+                  </div>-->
             </div>
            </div>
          </div>

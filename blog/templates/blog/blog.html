@@ -22,23 +22,31 @@
                    <hr>
                    <p class="lead"> {{ post.contenu }}</p><hr>
                    <div class="card my-4">
-                      <h5 class="card-header">Leave a Comment:</h5>
-                      <div class="card-body">
-                        <form>
-                          <div class="form-group">
-                            <textarea class="form-control" rows="3"> {{ post.comment }}</textarea>
-                          </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                      </div>
+
+                          <h5 class="card-header">Leave a Comment:</h5>
+                           <h6><a href=""><button class="btn btn-primary">Add Comment</button></a>  Total comments {{ post.comments.count }}:</h6>
+                                <hr>
+                          <div class="card-body">
+                                    {% for comment in post.comments.all %}
+                                        <p>{{ comment.date }}</p>
+                                        <p>{{ comment.auteur }}</p>
+                                        <p>{{ comment.contenu }}</p>
+                                    {% empty %}
+                                        <p>No comment!!!</p>
+                                    {% endfor %}
+                              </div>
+                          <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+
                    </div>
-                   <div class="media mb-4">
+
+                   </div>
+                  <!-- <div class="media mb-4">
                   <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ user.profile.image.url }}" alt="">
                       <div class="media-body">
                         <h5 class="mt-0">{{ post.auteur }}</h5>
                           <p> {{ post.contenu }} </p>
                         <div class="media mt-4">
-                          <!--<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">-->
+                          &lt;!&ndash;<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">&ndash;&gt;
                           <img class="d-flex mr-3 rounded-circle" width="40px" height="40px" src="{{ user.profile.image.url }}" alt="">
                           <div class="media-body">
                             <h5 class="mt-0">{{ post.auteur }}</h5>
@@ -46,7 +54,7 @@
                           </div>
                         </div>
                       </div>
-                </div>
+                </div>-->
             </div>
            </div>
 
